@@ -6,7 +6,7 @@ input.onButtonPressed(Button.AB, function () {
     for (let index = 0; index <= 4; index++) {
         led.unplot(index, 4)
     }
-    led.plot(variableMode, 0)
+    led.plot(variableMode, 4)
 })
 let variableMode = 0
 basic.showLeds(`
@@ -17,6 +17,7 @@ basic.showLeds(`
     . . . . .
     `)
 variableMode = 0
+led.plot(variableMode, 4)
 basic.forever(function () {
     if (variableMode == 0) {
         serial.writeValue("a.x", input.acceleration(Dimension.X))
