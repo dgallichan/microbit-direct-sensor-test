@@ -20,9 +20,7 @@ variableMode = 0
 led.plot(variableMode, 4)
 basic.forever(function () {
     if (variableMode == 0) {
-        serial.writeValue("a.x", input.acceleration(Dimension.X))
-        serial.writeValue("a.y", input.acceleration(Dimension.Y))
-        serial.writeValue("a.z", input.acceleration(Dimension.Z))
+        serial.writeLine("" + convertToText(input.acceleration(Dimension.X)) + "," + convertToText(input.acceleration(Dimension.Y)) + "," + convertToText(input.acceleration(Dimension.Z)) + "," + convertToText(input.magneticForce(Dimension.X)) + "," + convertToText(input.magneticForce(Dimension.Y)) + "," + convertToText(input.magneticForce(Dimension.Z)))
     } else if (variableMode == 1) {
         serial.writeValue("m.x", input.magneticForce(Dimension.X))
         serial.writeValue("m.y", input.magneticForce(Dimension.Y))
